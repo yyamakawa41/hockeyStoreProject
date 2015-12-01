@@ -9,7 +9,7 @@ $( document ).ready( function() {
       name: '.name',
       brandName: '.brandName',
       size: '.size',
-      price: '.price',
+      price: '.price parseInt',
       weight: function( itemElem ) {
         var weight = $( itemElem ).find('.weight').text();
         return parseFloat( weight.replace( /[\(\)]/g, '') );
