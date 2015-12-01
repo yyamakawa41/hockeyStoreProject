@@ -7,9 +7,9 @@ $( document ).ready( function() {
     layoutMode: 'fitRows',
     getSortData: {
       name: '.name',
-      symbol: '.symbol',
-      number: '.number parseInt',
-      category: '[data-category]',
+      brandName: '.brandName',
+      size: '.size',
+      price: '.price',
       weight: function( itemElem ) {
         var weight = $( itemElem ).find('.weight').text();
         return parseFloat( weight.replace( /[\(\)]/g, '') );
@@ -27,7 +27,7 @@ $( document ).ready( function() {
   };
 
   // bind filter button click
-  $('#filters > button').on( 'click', function() {
+  $('#filters').on( 'click', 'button', function() {
     var filterValue = $( this ).attr('data-filter');
     // use filterFn if matches value
     console.log("im clicked");
