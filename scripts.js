@@ -1,7 +1,7 @@
-// external js: isotope.pkgd.js
+
 
 $( document ).ready( function() {
-  // init Isotope
+  
   var $container = $('.isotope').isotope({
     itemSelector: '.element-item',
     layoutMode: 'fitRows',
@@ -23,19 +23,17 @@ $( document ).ready( function() {
     numberGreaterThan50: function() {
       var number = $(this).find('.number').text();
       return parseInt( number, 10 ) > 50;
-    },
-    // show if name ends with -ium
-    ium: function() {
-      var name = $(this).find('.name').text();
-      return name.match( /ium$/ );
     }
   };
 
   // bind filter button click
-  $('#filters').on( 'click', 'button', function() {
+  $('#filters > button').on( 'click', function() {
     var filterValue = $( this ).attr('data-filter');
     // use filterFn if matches value
+    console.log("im clicked");
+    console.log(filterValue);
     filterValue = filterFns[ filterValue ] || filterValue;
+    console.log(filterValue);
     $container.isotope({ filter: filterValue });
   });
 
